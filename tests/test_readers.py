@@ -18,3 +18,28 @@ def test_read_jsonl_invalid():
 
     # 如果确实抛出指定异常，测试通过。
     # 如果没有抛出异常，或者抛出了其他类型的异常，测试失败。
+
+# 测试驱动开发（TDD）
+def test_read_jsonl_missing_text():
+    with pytest.raises(ValueError, match="第2行"):
+        read_jsonl("data/missing_text.jsonl")
+
+def test_read_jsonl_text_none():
+    with pytest.raises(ValueError, match="第2行"):
+        read_jsonl("data/text_none.jsonl")
+
+def test_read_jsonl_text_empty():
+    with pytest.raises(ValueError, match="第2行"):
+        read_jsonl("data/text_empty.jsonl")
+
+def test_read_jsonl_text_whitespace():
+    with pytest.raises(ValueError, match="第2行"):
+        read_jsonl("data/text_whitespace.jsonl")
+
+def test_read_jsonl_missing_id():
+    with pytest.raises(ValueError, match="第2行"):
+        read_jsonl("data/missing_id.jsonl")
+
+def test_read_jsonl_invalid_utf8():
+    with pytest.raises(UnicodeDecodeError):
+        read_jsonl("data/invalid_utf8.jsonl")
