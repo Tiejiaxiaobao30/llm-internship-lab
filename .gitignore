@@ -6,3 +6,4 @@
 _pycache_/
 # MNIST 原始数据
 /data/mnist/
+*.pth
