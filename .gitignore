@@ -3,7 +3,17 @@
 # 忽略 pytest 缓存
 .pytest_cache/
 *.pyc
+__pycache__/
 _pycache_/
 # MNIST 原始数据
 /data/mnist/
 *.pth
+# Kaggle competition datasets
+/data/digit_recognizer/
+# Model checkpoints
+*.pth
+*.pt
+# Generated predictions
+submission.csv
+# Python cache
+__pycache__/
